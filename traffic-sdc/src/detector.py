@@ -30,28 +30,35 @@ def detect(frame):
             "confidence": round(conf, 2),
             "bbox": [x1, y1, x2, y2],
         })
-    return detections
+    annotated = results[0].plot()
+    return detections, annotated
 
 
 if __name__ == "__main__":
-      script_dir = os.path.dirname(__file__)     
-      project_dir = os.path.dirname(script_dir)
-      VIDEO_PATH = os.path.join(project_dir, "data", "traffic.mp4")
+    script_dir = os.path.dirname(__file__)     
+    project_dir = os.path.dirname(script_dir)
+    VIDEO_PATH = os.path.join(project_dir, "data", "traffic.mp4")
+    OUTPUT_PATH = os.path.join(project_dir, "data", "traffic_tracked.mp4")
   
-      cap = cv2.VideoCapture(VIDEO_PATH)
-      if not cap.isOpened():
-          print("❌ Couldn't open video")
-          exit()
+    cap = cv2.VideoCapture(VIDEO_PATH)
+    if not cap.isOpened():
+        print("❌ Couldn't open video")
+        exit()
 
-      frame_count = 0
-      while True:
-          ret, frame = cap.read()
-          if not ret:
-              break   
-          detections = detect(frame)
-          frame_count += 1
-          ids = [d["track_id"] for d in detections]
-          print(f"Frame {frame_count}: {len(detections)} objects | IDs: {ids}")
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+    writer= cv2.VideoWriter(OUTPUT_PATH, fourcc, fps, (width, height))
+    frame_count = 0
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break   
+        detections = detect(frame)
+        frame_count += 1
+        ids = [d["track_id"] for d in detections]
+        print(f"Frame {frame_count}: {len(detections)} objects | IDs: {ids}")
 
-      cap.release()   
-      print(f"\n✅ Done! Processed {frame_count} frames.")
+    cap.release()   
+    print(f"\n✅ Done! Processed {frame_count} frames.")
