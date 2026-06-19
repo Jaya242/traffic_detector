@@ -5,3 +5,5 @@ __pycache__/
 .vscode/
 *.mp4
 runs/
+*.pt
+tempCodeRunnerFile.py
