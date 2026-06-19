@@ -55,12 +55,13 @@ if __name__ == "__main__":
         ret, frame = cap.read()
         if not ret:
             break   
-        detections = detect(frame)
+        detections,annotated = detect(frame)
+        writer.write(annotated)
         frame_count += 1
         ids = [d["track_id"] for d in detections]
         print(f"Frame {frame_count}: {len(detections)} objects | IDs: {ids}")
 
     cap.release()   
+    writer.release()
     print(f"\n✅ Done! Processed {frame_count} frames.")
     print(f"📹 Annotated video: {OUTPUT_PATH}")
-    
