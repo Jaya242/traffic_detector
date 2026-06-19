@@ -62,3 +62,5 @@ if __name__ == "__main__":
 
     cap.release()   
     print(f"\n✅ Done! Processed {frame_count} frames.")
+    print(f"📹 Annotated video: {OUTPUT_PATH}")
+    
