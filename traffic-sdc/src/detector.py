@@ -12,7 +12,8 @@ LINE_Y_RATIO=0.7
 LINE_X_RATIO=0.5
 
 def detect(frame):
-    results = model.track(frame, persist=True, verbose=False)
+    results = model.track(frame, persist=True, verbose=False, classes=[2, 3, 5, 7])
+    # [2, 3, 5, 7] 2,3,5,7 COCO Ids for car, bus, truck, motorcycle
     detections = []                            
     for box in results[0].boxes:
         cls_id = int(box.cls[0])
@@ -74,6 +75,9 @@ if __name__ == "__main__":
         cv2.line(annotated, (0, LINE_Y), (width, LINE_Y), (0, 255, 255), 2)
         cv2.line(annotated, (LINE_X, 0), (LINE_X, height), (0, 255, 255), 2)
 
+        counter_text = f"N:{counts['north']} S:{counts['south']}  E:{counts['east']}W:{counts['west']}"
+        cv2.putText(annotated, counter_text, (20, 40),cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 255), 2)
+
         for det in detections:
             track_id = det["track_id"]
             if track_id is None:
@@ -98,7 +102,7 @@ if __name__ == "__main__":
                             "line": "horizontal",
                             "direction": "south",
                             "frame": frame_count,
-                              "timestamp_sec": round(frame_count / fps, 2),
+                            "timestamp_sec": round(frame_count / fps, 2),
                         })
                     elif prev_cy > LINE_Y >= cy:
                         # Was below, now at/above → moved UP → north
