@@ -120,7 +120,7 @@
   - [x] YOLOv8 vehicle detection                 
   - [x] ByteTrack persistent-ID tracking
   - [x] Annotated video output with `cv2.VideoWriter`
-  - [ ] Line-crossing counter + CSV export
+  - [x] Line-crossing counter + CSV export
   - [ ] Per-class breakdown
   - [ ] Accuracy metric vs manual ground-truth count
   - [ ] Gradio app on HuggingFace Spaces (live URL)
