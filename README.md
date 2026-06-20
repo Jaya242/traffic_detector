@@ -41,7 +41,7 @@
   - Output saved to `data/traffic_tracked.mp4` at original resolution + fps
   - Powered by `cv2.VideoWriter` + Ultralytics' `result.plot()` helper
   
-  ### 🧮 Counting & Analytics =
+  ### 🧮 Counting & Analytics 
   - Virtual line-crossing logic — count each track ID once when it crosses the line
   - Per-direction, per-class breakdown
   - CSV export of every counted event
