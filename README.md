@@ -1,8 +1,8 @@
 
   # 🚦 Traffic Analytics Pipeline
 
-  > *A real-time vehicle detection, tracking, and counting system built on YOLOv8 + ByteTrack. 
-  Turns raw traffic footage into per-class vehicle counts with a single command.*
+  > *Real-time intersection movement analytics — detects, tracks, and counts vehicles across all 4
+  directions from raw traffic footage. YOLOv8 + ByteTrack + per-line CSV export, in one command.*
 
   ![Python](https://img.shields.io/badge/Python-3.12-3776AB)
   ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C)
@@ -14,8 +14,8 @@
 
   ## 🎥 Demo
 
-  <img width="600" height="338" alt="demo" src="https://github.com/user-attachments/assets/1a88075c-78db-4d77-a0ed-0fe006bd1caf" />
 
+<img width="600" height="338" alt="demo" src="https://github.com/user-attachments/assets/31a8042e-874f-4888-a0f2-0c5e811f71b7" />
 
 
 
@@ -27,7 +27,7 @@
 
   ### 🎯 Vehicle Detection
   - YOLOv8n (nano) pretrained on COCO — fast, lightweight
-  - Filtered to relevant classes: `car`, `truck`, `bus`, `motorcycle`, `bicycle`, `person`
+  - Filtered to relevant classes: `car`, `truck`, `bus`, `motorcycle`
   - Confidence threshold tuned to suppress false positives in dense scenes
   
   ### 🆔 Multi-Object Tracking
@@ -41,7 +41,7 @@
   - Output saved to `data/traffic_tracked.mp4` at original resolution + fps
   - Powered by `cv2.VideoWriter` + Ultralytics' `result.plot()` helper
   
-  ### 🧮 Counting & Analytics _(in progress)_
+  ### 🧮 Counting & Analytics 
   - Virtual line-crossing logic — count each track ID once when it crosses the line
   - Per-direction, per-class breakdown
   - CSV export of every counted event
