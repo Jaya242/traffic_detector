@@ -1,10 +1,13 @@
 # 🚦 Traffic Analytics Pipeline
 
   > *Real-time vehicle detection, multi-object tracking, and unique-vehicle counting from
-   traffic footage. YOLOv8 + ByteTrack + dual-line crossing dedup + CSV export, in one 
-  command.*
-  
-  ![Python](https://img.shields.io/badge/Python-3.12-3776AB)
+     traffic footage. YOLOv8 + ByteTrack + dual-line crossing dedup + CSV export, in one 
+    command.*
+
+    [![🤗 Live Demo](https://img.shields.io/badge/🤗_Live_Demo-Try_it_now-yellow?style=for-th
+  e-badge)](https://huggingface.co/spaces/Ctrlescflyy/traffic-analytics)
+
+    ![Python](https://img.shields.io/badge/Python-3.12-3776AB)
   ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C)
   ![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-111F68)
   ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8)
@@ -56,9 +59,11 @@
   - CSV export of every crossing event for downstream analysis: `track_id, class, line,
   direction, frame, timestamp_sec`
 
-  ### 🌐 Live Demo _(in progress)_
-  - Gradio app: upload any traffic video → get back annotated output + CSV
-  - Deployed on **HuggingFace Spaces** for a public live URL
+  ### 🌐 Live Demo ✅
+    - **[Try the live demo →](https://huggingface.co/spaces/Ctrlescflyy/traffic-analytics)**
+  on HuggingFace Spaces
+    - Upload any traffic video → get back annotated output + crossings CSV
+    - Built with Gradio, deployed on free-tier HF Spaces (CPU)
 
   ### 📊 Mini Dashboard _(in progress)_
   - Time-series of vehicle counts per minute
@@ -173,7 +178,7 @@
   - [x] Dual-line crossing counter + CSV export
   - [x] Unique-vehicle dedup + turning-vehicle detection
   - [x] Accuracy metric vs manual ground-truth count (96.2%)
-  - [ ] Gradio app on HuggingFace Spaces (live URL)
+  - [x] Gradio app on HuggingFace Spaces (live URL)
   - [ ] Mini analytics dashboard
   - [ ] Minimum-motion threshold to eliminate phantom counts
   - [ ] Class fine-tuning on intersection-specific data
