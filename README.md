@@ -4,14 +4,15 @@
      traffic footage. YOLOv8 + ByteTrack + dual-line crossing dedup + CSV export, in one 
     command.*
 
-    [![🤗 Live Demo](https://img.shields.io/badge/🤗_Live_Demo-Try_it_now-yellow?style=for-th
-  e-badge)](https://huggingface.co/spaces/Ctrlescflyy/traffic-analytics)
+  [![🤗 Live Demo](https://img.shields.io/badge/🤗_Live_Demo-Try_it_now-yellow?style=for-the-badge)](https://huggingface.co/spaces/Ctrlescflyy/traffic-analytics)
 
-    ![Python](https://img.shields.io/badge/Python-3.12-3776AB)
+
+  
+  ![Python](https://img.shields.io/badge/Python-3.12-3776AB)
   ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C)
   ![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-111F68)
   ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8)
-  ![Gradio](https://img.shields.io/badge/Gradio-coming_soon-FF7C00)
+  ![Gradio](https://img.shields.io/badge/Gradio-Deployed-FF7C00)
 
   ---
 
@@ -60,12 +61,12 @@
   direction, frame, timestamp_sec`
 
   ### 🌐 Live Demo ✅
-    - **[Try the live demo →](https://huggingface.co/spaces/Ctrlescflyy/traffic-analytics)**
+   **[Try the live demo →](https://huggingface.co/spaces/Ctrlescflyy/traffic-analytics)**
   on HuggingFace Spaces
     - Upload any traffic video → get back annotated output + crossings CSV
     - Built with Gradio, deployed on free-tier HF Spaces (CPU)
 
-  ### 📊 Mini Dashboard _(in progress)_
+  ### 📊 Mini Dashboard ✅
   - Time-series of vehicle counts per minute
   - Per-class bar chart
   - Total counters across the whole run 
@@ -114,8 +115,8 @@
   | **Detection** | Ultralytics YOLOv8n (PyTorch backend) |
   | **Tracking** | ByteTrack |
   | **Video I/O** | OpenCV |
-  | **Demo UI** _(coming)_ | Gradio |
-  | **Deployment** _(coming)_ | HuggingFace Spaces |
+  | **Demo UI**| Gradio |
+  | **Deployment**| HuggingFace Spaces |
 
   ---
   
@@ -179,7 +180,7 @@
   - [x] Unique-vehicle dedup + turning-vehicle detection
   - [x] Accuracy metric vs manual ground-truth count (96.2%)
   - [x] Gradio app on HuggingFace Spaces (live URL)
-  - [ ] Mini analytics dashboard
+  - [x] Mini analytics dashboard
   - [ ] Minimum-motion threshold to eliminate phantom counts
   - [ ] Class fine-tuning on intersection-specific data
   - [ ] FastAPI + Docker deployment
